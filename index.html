@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Kiran Nagam - Sr. Full Stack .NET Developer</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #112240;
+            --accent: #64ffda;
+            --accent-secondary: #00d4ff;
+            --text-primary: #ccd6f6;
+            --text-secondary: #8892b0;
+            --highlight: #e6f1ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Syne', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, #0d1b2a 50%, var(--secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Animated Background Grid */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(100, 255, 218, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(100, 255, 218, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        /* Header */
+        header {
+            position: relative;
+            padding: 100px 0 80px;
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .header-content {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .glitch-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: rgba(100, 255, 218, 0.1);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(100, 255, 218, 0.2);
+        }
+        
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Sections */
+        section {
+            position: relative;
+            padding: 80px 0;
+            z-index: 1;
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(17, 34, 64, 0.5);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .skill-category {
+            background: rgba(17, 34, 64, 0.5);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .skill-category:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2);
+        }
+        
+        .skill-category h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background: rgba(100, 255, 218, 0.2);
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+        
+        /* Certifications Section */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .cert-card {
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.05), rgba(0, 212, 255, 0.05));
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .cert-card::before {
+            content: '✓';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--accent);
+            opacity: 0.5;
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+        }
+        
+        .cert-card h3 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .cert-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        /* Experience Section */
+        .experience-timeline {
+            max-width: 900px;
+            margin: 50px auto;
+            position: relative;
+        }
+        
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-secondary));
+        }
+        
+        .experience-item {
+            margin-bottom: 50px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--accent);
+        }
+        
+        .experience-item h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .experience-item .role {
+            color: var(--highlight);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .experience-item .date {
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .experience-item .description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .tech-item {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .cta-button {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Syne', sans-serif;
+        }
+        
+        .cta-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            color: var(--primary);
+            border: none;
+            box-shadow: 0 5px 20px rgba(100, 255, 218, 0.3);
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(100, 255, 218, 0.5);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            position: relative;
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            z-index: 1;
+        }
+        
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 20px;
+            }
+            
+            .skills-grid,
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-timeline::before {
+                left: 10px;
+            }
+            
+            .experience-item {
+                padding-left: 35px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-background"></div>
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="glitch-wrapper">
+                    <h1>Sai Kiran Nagam</h1>
+                </div>
+                <p class="subtitle">Sr. Full Stack .NET Developer</p>
+                <div class="contact-info">
+                    <a href="mailto:saikiran.net2@gmail.com" class="contact-item">
+                        <span>📧</span>
+                        <span>saikiran.net2@gmail.com</span>
+                    </a>
+                    <a href="tel:+19193718202" class="contact-item">
+                        <span>📱</span>
+                        <span>+1 (919) 371 8202</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/saikirannagam" target="_blank" class="contact-item">
+                        <span>💼</span>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title reveal">About Me</h2>
+            <div class="about-content reveal">
+                <p>With over 9+ years of experience in various phases of the Software Development Life Cycle (SDLC), I have actively contributed to the analysis, design, development, and maintenance of web applications. My expertise spans across technologies such as ASP.NET, C#, .NET Core, MVC, JavaScript, Angular and SQL Server.</p>
+                <p>I specialize in building scalable, high-performance applications using modern technologies and cloud platforms. From implementing microservices architecture to optimizing database performance, I bring a comprehensive approach to full-stack development with a focus on delivering exceptional user experiences.</p>
+                <p>Currently working at Fiduciary Exchange (FIDx), I develop cutting-edge financial applications using Angular, Blazor, and .NET 8, while leveraging Azure cloud services for scalable, secure deployments.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title reveal">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category reveal">
+                    <h3>Backend Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">.NET Core</span>
+                        <span class="skill-tag">.NET 8</span>
+                        <span class="skill-tag">ASP.NET MVC</span>
+                        <span class="skill-tag">Web API</span>
+                        <span class="skill-tag">Entity Framework</span>
+                        <span class="skill-tag">WCF</span>
+                        <span class="skill-tag">WPF</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category reveal">
+                    <h3>Frontend Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">jQuery</span>
+                        <span class="skill-tag">Blazor</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category reveal">
+                    <h3>Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL Server</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Cosmos DB</span>
+                        <span class="skill-tag">T-SQL</span>
+                        <span class="skill-tag">Entity Framework Core</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category reveal">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Azure DevOps</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Application Insights</span>
+                        <span class="skill-tag">Azure Functions</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category reveal">
+                    <h3>Testing & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">xUnit</span>
+                        <span class="skill-tag">NUnit</span>
+                        <span class="skill-tag">Moq</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Swagger</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Visual Studio</span>
+                        <span class="skill-tag">VS Code</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category reveal">
+                    <h3>Methodologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agile/Scrum</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">TDD</span>
+                        <span class="skill-tag">OAuth2</span>
+                        <span class="skill-tag">JWT</span>
+                        <span class="skill-tag">SOLID</span>
+                        <span class="skill-tag">Design Patterns</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title reveal">Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card reveal">
+                    <h3>Microsoft Certified: Azure Developer Associate</h3>
+                    <p>Advanced Azure cloud development and deployment</p>
+                </div>
+                <div class="cert-card reveal">
+                    <h3>AWS Certified: Data Engineer Associate</h3>
+                    <p>Data engineering solutions on AWS platform</p>
+                </div>
+                <div class="cert-card reveal">
+                    <h3>HackerRank SQL Certification</h3>
+                    <p>Basic and Advanced SQL proficiency</p>
+                </div>
+                <div class="cert-card reveal">
+                    <h3>Cisco Python Essentials</h3>
+                    <p>Python programming fundamentals</p>
+                </div>
+                <div class="cert-card reveal">
+                    <h3>Microsoft Foundational C#</h3>
+                    <p>Core C# programming concepts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title reveal">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item reveal">
+                    <h3>Fiduciary Exchange (FIDx)</h3>
+                    <p class="role">Sr. Full Stack .NET Developer</p>
+                    <p class="date">Aug 2024 - Present | Remote</p>
+                    <p class="description">
+                        Developing modern financial applications using Angular, Blazor, and .NET 8. Orchestrated containerization with Docker, implemented CI/CD pipelines using Azure DevOps, and leveraged Azure cloud services for scalable deployments. Built RESTful APIs and integrated them with Angular frontends for seamless user experiences.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-item">Angular</span>
+                        <span class="tech-item">.NET 8</span>
+                        <span class="tech-item">Blazor</span>
+                        <span class="tech-item">TypeScript</span>
+                        <span class="tech-item">Azure</span>
+                        <span class="tech-item">Docker</span>
+                        <span class="tech-item">CI/CD</span>
+                    </div>
+                </div>
+                
+                <div class="experience-item reveal">
+                    <h3>Blue Cross Blue Shield (BCBS)</h3>
+                    <p class="role">Sr. Full Stack .NET Developer</p>
+                    <p class="date">May 2023 - Jul 2024 | North Carolina</p>
+                    <p class="description">
+                        Upgraded healthcare analytics platform to .NET 8, implemented multi-stage Docker builds, and developed PostgreSQL views for real-time analytics. Utilized Cosmos DB for multi-region data distribution and optimized Angular service layers with TypeScript and RxJS for improved application responsiveness.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-item">.NET Core</span>
+                        <span class="tech-item">Angular</span>
+                        <span class="tech-item">PostgreSQL</span>
+                        <span class="tech-item">Cosmos DB</span>
+                        <span class="tech-item">Docker</span>
+                        <span class="tech-item">Azure</span>
+                        <span class="tech-item">OAuth2</span>
+                    </div>
+                </div>
+                
+                <div class="experience-item reveal">
+                    <h3>First Citizens Bank</h3>
+                    <p class="role">Full Stack .NET Developer</p>
+                    <p class="date">Jun 2021 - Apr 2023 | Raleigh, NC</p>
+                    <p class="description">
+                        Developed banking platform using MVC architecture with .NET Framework. Implemented RESTful APIs with JWT authentication, utilized Cosmos DB for transaction reliability, and optimized PostgreSQL schemas for efficient transaction processing. Built Angular components with TypeScript for enhanced user experience.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-item">ASP.NET MVC</span>
+                        <span class="tech-item">Angular</span>
+                        <span class="tech-item">TypeScript</span>
+                        <span class="tech-item">PostgreSQL</span>
+                        <span class="tech-item">Cosmos DB</span>
+                        <span class="tech-item">JWT</span>
+                        <span class="tech-item">Azure</span>
+                    </div>
+                </div>
+                
+                <div class="experience-item reveal">
+                    <h3>Inspire Brands</h3>
+                    <p class="role">.NET Developer</p>
+                    <p class="date">Aug 2020 - Apr 2021 | New Jersey</p>
+                    <p class="description">
+                        Built brand management portal using .NET Web Forms and Angular. Enhanced modularity with TypeScript, implemented MongoDB queries for improved performance, and developed WPF applications for internal process automation.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-item">.NET Framework</span>
+                        <span class="tech-item">Angular</span>
+                        <span class="tech-item">TypeScript</span>
+                        <span class="tech-item">MongoDB</span>
+                        <span class="tech-item">WPF</span>
+                        <span class="tech-item">PostgreSQL</span>
+                    </div>
+                </div>
+                
+                <div class="experience-item reveal">
+                    <h3>LVB</h3>
+                    <p class="role">.NET Developer</p>
+                    <p class="date">Dec 2014 - Oct 2019 | Hyderabad, India</p>
+                    <p class="description">
+                        Developed online and mobile banking platforms using ASP.NET Core, Angular, and Entity Framework. Implemented secure RESTful APIs with OAuth2 and JWT authentication. Deployed applications on Azure with comprehensive monitoring using Application Insights.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-item">ASP.NET Core</span>
+                        <span class="tech-item">Angular</span>
+                        <span class="tech-item">Entity Framework</span>
+                        <span class="tech-item">Azure</span>
+                        <span class="tech-item">SQL Server</span>
+                        <span class="tech-item">OAuth2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title reveal">Let's Work Together</h2>
+            <p class="reveal" style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 20px auto;">
+                I'm always interested in hearing about new opportunities, challenging projects, and collaborative ventures. Let's connect!
+            </p>
+            <div class="contact-buttons reveal">
+                <a href="mailto:saikiran.net2@gmail.com" class="cta-button cta-primary">
+                    <span>📧</span>
+                    <span>Send Email</span>
+                </a>
+                <a href="https://www.linkedin.com/in/saikirannagam" target="_blank" class="cta-button cta-secondary">
+                    <span>💼</span>
+                    <span>Connect on LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Sai Kiran Nagam. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Scroll reveal animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
