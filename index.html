@@ -164,6 +164,29 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 20px rgba(100, 255, 218, 0.2);
         }
+        /* Layout adjustment for profile + text */
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* keeps text centered overall */
+            gap: 40px;
+        }
+        
+        /* Profile image styling */
+        .profile-picture {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            flex-shrink: 0;
+        }
+        
+        /* Keep text block centered */
+        .header-text {
+            text-align: center;
+        }
+
         
         /* Navigation */
         nav {
