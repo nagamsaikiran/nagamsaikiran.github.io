@@ -11,16 +11,17 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SC976TPC3T"></script>
     <script>
+    // @ts-nocheck
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-SC976TPC3T');
     </script>
-    
+
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -29,11 +30,11 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "vfitnbdezx");
     </script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
             --primary: #0a192f;
@@ -44,13 +45,13 @@
             --text-secondary: #8892b0;
             --highlight: #e6f1ff;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Syne', sans-serif;
             background: linear-gradient(135deg, var(--primary) 0%, #0d1b2a 50%, var(--secondary) 100%);
@@ -58,13 +59,13 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Animated Background Grid */
         .grid-background {
             position: fixed;
@@ -72,150 +73,154 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(100, 255, 218, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(100, 255, 218, 0.03) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(100, 255, 218, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(100, 255, 218, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             pointer-events: none;
             z-index: 0;
             animation: gridMove 20s linear infinite;
         }
-        
+
         @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
         }
-        
+
         /* Header */
-header {
-    position: relative;
-    padding: 100px 0 80px;
-    z-index: 1;
-}
+        header {
+            position: relative;
+            padding: 100px 0 80px;
+            z-index: 1;
+        }
 
-.header-content {
-    animation: fadeInUp 1s ease-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 80px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+        .header-content {
+            animation: fadeInUp 1s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
 
-/* Profile Picture */
-.profile-picture {
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    border: 4px solid var(--accent);
-    box-shadow: 0 0 40px rgba(100, 255, 218, 0.4);
-    object-fit: cover;
-    /* ADJUST THIS VALUE to move image up/down within the circle */
-    object-position: center 20%; /* Change 20% to move your face */
-    /* 0% = show top of image (move face down in circle) */
-    /* 50% = centered (default) */
-    /* 80% = show bottom of image (move face up in circle) */
-    transition: all 0.3s ease;
-    flex-shrink: 0; /* Prevents image from shrinking */
-    margin-right: 30px;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.profile-picture:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 60px rgba(100, 255, 218, 0.6);
-}
+        /* Profile Picture */
+        .profile-picture {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 40px rgba(100, 255, 218, 0.4);
+            object-fit: cover;
+            /* ADJUST THIS VALUE to move image up/down within the circle */
+            object-position: center 15%; 
+             0% = show top of image (move face down in circle) 
+             50% = centered (default) 
+             80% = show bottom of image (move face up in circle) 
+            transition: all 0.3s ease;
+            flex-shrink: 0; 
+            margin-right: 30px;
+        }
 
-/* Text section stays centered */
-.header-text {
-    text-align: center;
-    flex: 1; /* Takes remaining space */
-    min-width: 800px;
-}
+            .profile-picture:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 60px rgba(100, 255, 218, 0.6);
+            }
 
-.glitch-wrapper {
-    position: relative;
-    display: inline-block;
-}
+        /* Text section stays centered */
+        .header-text {
+            text-align: center;
+            flex: 1; 
+            min-width: 800px;
+        }
 
-h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 900;
-    background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--highlight));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 10px;
-    letter-spacing: -2px;
-    text-transform: uppercase;
-    position: relative;
-}
+        .glitch-wrapper {
+            position: relative;
+            display: inline-block;
+        }
 
-.subtitle {
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    color: var(--text-secondary);
-    font-weight: 500;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-}
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            position: relative;
+        }
 
-.contact-info {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
 
-.contact-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    background: rgba(100, 255, 218, 0.05);
-    border: 1px solid rgba(100, 255, 218, 0.2);
-    border-radius: 8px;
-    color: var(--accent);
-    text-decoration: none;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
 
-.contact-item:hover {
-    background: rgba(100, 255, 218, 0.1);
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(100, 255, 218, 0.2);
-}
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
 
-/* Mobile responsive */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .profile-picture {
-        width: 150px;
-        height: 150px;
-    }
-}
+            .contact-item:hover {
+                background: rgba(100, 255, 218, 0.1);
+                border-color: var(--accent);
+                transform: translateY(-2px);
+                box-shadow: 0 5px 20px rgba(100, 255, 218, 0.2);
+            }
 
-        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .profile-picture {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+
         /* Navigation */
         nav {
             position: sticky;
@@ -226,52 +231,52 @@ h1 {
             z-index: 100;
             border-bottom: 1px solid rgba(100, 255, 218, 0.1);
         }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        
-        nav a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            position: relative;
-            padding: 5px 0;
-            transition: color 0.3s ease;
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-        
-        nav a:hover {
-            color: var(--accent);
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                gap: 40px;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                color: var(--text-primary);
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1rem;
+                letter-spacing: 0.5px;
+                position: relative;
+                padding: 5px 0;
+                transition: color 0.3s ease;
+            }
+
+                nav a::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background: var(--accent);
+                    transition: width 0.3s ease;
+                }
+
+                nav a:hover {
+                    color: var(--accent);
+                }
+
+                    nav a:hover::after {
+                        width: 100%;
+                    }
+
         /* Sections */
         section {
             position: relative;
             padding: 80px 0;
             z-index: 1;
         }
-        
+
         .section-title {
             font-family: 'Orbitron', sans-serif;
             font-size: clamp(2rem, 4vw, 3rem);
@@ -283,18 +288,18 @@ h1 {
             left: 50%;
             transform: translateX(-50%);
         }
-        
-        .section-title::before {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-            border-radius: 2px;
-        }
-        
+
+            .section-title::before {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+                border-radius: 2px;
+            }
+
         /* About Section */
         .about-content {
             max-width: 900px;
@@ -305,38 +310,38 @@ h1 {
             border: 1px solid rgba(100, 255, 218, 0.1);
             backdrop-filter: blur(10px);
         }
-        
-        .about-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
+
+            .about-content p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+                color: var(--text-secondary);
+                margin-bottom: 20px;
+            }
 
         .resume-link-box {
-    margin-top: 30px;
-    text-align: center;
-}
+            margin-top: 30px;
+            text-align: center;
+        }
 
-.resume-link-box a {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    text-decoration: none;
-    border-radius: 6px;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    background: rgba(100, 255, 218, 0.05);
-    transition: all 0.3s ease;
-}
+            .resume-link-box a {
+                display: inline-block;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                text-decoration: none;
+                border-radius: 6px;
+                border: 1px solid var(--accent);
+                color: var(--accent);
+                background: rgba(100, 255, 218, 0.05);
+                transition: all 0.3s ease;
+            }
 
-.resume-link-box a:hover {
-    background: var(--accent);
-    color: #000;
-    transform: translateY(-2px);
-}
+                .resume-link-box a:hover {
+                    background: var(--accent);
+                    color: #000;
+                    transform: translateY(-2px);
+                }
 
-        
+
         /* Skills Section */
         .skills-grid {
             display: grid;
@@ -344,7 +349,7 @@ h1 {
             gap: 30px;
             margin-top: 50px;
         }
-        
+
         .skill-category {
             background: rgba(17, 34, 64, 0.5);
             padding: 30px;
@@ -354,43 +359,43 @@ h1 {
             position: relative;
             overflow: hidden;
         }
-        
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-        
-        .skill-category:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .skill-category:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2);
-        }
-        
-        .skill-category h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
+
+            .skill-category::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.3s ease;
+            }
+
+            .skill-category:hover::before {
+                transform: scaleX(1);
+            }
+
+            .skill-category:hover {
+                border-color: var(--accent);
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2);
+            }
+
+            .skill-category h3 {
+                font-family: 'Orbitron', sans-serif;
+                color: var(--accent);
+                margin-bottom: 15px;
+                font-size: 1.3rem;
+            }
+
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
-        
+
         .skill-tag {
             background: rgba(100, 255, 218, 0.1);
             color: var(--text-primary);
@@ -401,13 +406,13 @@ h1 {
             border: 1px solid rgba(100, 255, 218, 0.2);
             transition: all 0.3s ease;
         }
-        
-        .skill-tag:hover {
-            background: rgba(100, 255, 218, 0.2);
-            border-color: var(--accent);
-            transform: scale(1.05);
-        }
-        
+
+            .skill-tag:hover {
+                background: rgba(100, 255, 218, 0.2);
+                border-color: var(--accent);
+                transform: scale(1.05);
+            }
+
         /* Certifications Section */
         .cert-grid {
             display: grid;
@@ -415,145 +420,144 @@ h1 {
             gap: 25px;
             margin-top: 50px;
         }
-        
-       
+
+
         .cert-card {
-    background: linear-gradient(135deg, rgba(100, 255, 218, 0.05), rgba(0, 212, 255, 0.05));
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid rgba(100, 255, 218, 0.2);
-    transition: all 0.3s ease;
-    position: relative;
-
-    display: flex;               /* ADD */
-    flex-direction: column;      /* ADD */
-    justify-content: space-between; /* ADD */
-}
-
-        
-        .cert-card::before {
-            content: '✓';
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
-            color: var(--accent);
-            opacity: 0.5;
-        }
-        
-        .cert-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
-        }
-        
-        .cert-card h3 {
-            color: var(--accent);
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        
-        .cert-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.05), rgba(0, 212, 255, 0.05));
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-     
+
+            .cert-card::before {
+                content: '✓';
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 1.5rem;
+                color: var(--accent);
+                opacity: 0.5;
+            }
+
+            .cert-card:hover {
+                transform: translateY(-5px);
+                border-color: var(--accent);
+                box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+            }
+
+            .cert-card h3 {
+                color: var(--accent);
+                font-size: 1.1rem;
+                margin-bottom: 8px;
+                font-weight: 600;
+            }
+
+            .cert-card p {
+                color: var(--text-secondary);
+                font-size: 0.95rem;
+            }
+
+
         .cert-link-box {
-    margin-top: 25px;
-    text-align: center;   /* centers button */
-}
+            margin-top: 25px;
+            text-align: center;
+        }
 
 
-.cert-link-box a {
-    display: inline-block;
-    padding: 8px 16px;
-    font-size: 0.85rem;
-    text-decoration: none;
-    border-radius: 6px;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    background: rgba(100, 255, 218, 0.05);
-    transition: all 0.3s ease;
-}
+            .cert-link-box a {
+                display: inline-block;
+                padding: 8px 16px;
+                font-size: 0.85rem;
+                text-decoration: none;
+                border-radius: 6px;
+                border: 1px solid var(--accent);
+                color: var(--accent);
+                background: rgba(100, 255, 218, 0.05);
+                transition: all 0.3s ease;
+            }
 
-.cert-link-box a:hover {
-    background: var(--accent);
-    color: #000;
-    transform: translateY(-2px);
-}
+                .cert-link-box a:hover {
+                    background: var(--accent);
+                    color: #000;
+                    transform: translateY(-2px);
+                }
 
-        
+
         /* Experience Section */
         .experience-timeline {
             max-width: 900px;
             margin: 50px auto;
             position: relative;
         }
-        
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--accent), var(--accent-secondary));
-        }
-        
+
+            .experience-timeline::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: linear-gradient(180deg, var(--accent), var(--accent-secondary));
+            }
+
         .experience-item {
             margin-bottom: 50px;
             padding-left: 40px;
             position: relative;
         }
-        
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 8px;
-            width: 14px;
-            height: 14px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 20px var(--accent);
-        }
-        
-        .experience-item h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent);
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-        
-        .experience-item .role {
-            color: var(--highlight);
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .experience-item .date {
-            color: var(--text-secondary);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        
-        .experience-item .description {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-        
+
+            .experience-item::before {
+                content: '';
+                position: absolute;
+                left: -6px;
+                top: 8px;
+                width: 14px;
+                height: 14px;
+                background: var(--accent);
+                border-radius: 50%;
+                box-shadow: 0 0 20px var(--accent);
+            }
+
+            .experience-item h3 {
+                font-family: 'Orbitron', sans-serif;
+                color: var(--accent);
+                font-size: 1.5rem;
+                margin-bottom: 5px;
+            }
+
+            .experience-item .role {
+                color: var(--highlight);
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 5px;
+            }
+
+            .experience-item .date {
+                color: var(--text-secondary);
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+
+            .experience-item .description {
+                color: var(--text-secondary);
+                line-height: 1.7;
+                margin-bottom: 15px;
+            }
+
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-top: 15px;
         }
-        
+
         .tech-item {
             background: rgba(100, 255, 218, 0.1);
             color: var(--accent);
@@ -563,13 +567,13 @@ h1 {
             font-family: 'JetBrains Mono', monospace;
             border: 1px solid rgba(100, 255, 218, 0.3);
         }
-        
+
         /* Contact Section */
         .contact-section {
             text-align: center;
             padding: 80px 0;
         }
-        
+
         .contact-buttons {
             display: flex;
             gap: 20px;
@@ -577,7 +581,7 @@ h1 {
             flex-wrap: wrap;
             margin-top: 40px;
         }
-        
+
         .cta-button {
             padding: 15px 40px;
             font-size: 1.1rem;
@@ -590,30 +594,30 @@ h1 {
             gap: 10px;
             font-family: 'Syne', sans-serif;
         }
-        
+
         .cta-primary {
             background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
             color: var(--primary);
             border: none;
             box-shadow: 0 5px 20px rgba(100, 255, 218, 0.3);
         }
-        
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(100, 255, 218, 0.5);
-        }
-        
+
+            .cta-primary:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 30px rgba(100, 255, 218, 0.5);
+            }
+
         .cta-secondary {
             background: transparent;
             color: var(--accent);
             border: 2px solid var(--accent);
         }
-        
-        .cta-secondary:hover {
-            background: rgba(100, 255, 218, 0.1);
-            transform: translateY(-3px);
-        }
-        
+
+            .cta-secondary:hover {
+                background: rgba(100, 255, 218, 0.1);
+                transform: translateY(-3px);
+            }
+
         /* Footer */
         footer {
             position: relative;
@@ -622,80 +626,80 @@ h1 {
             border-top: 1px solid rgba(100, 255, 218, 0.1);
             z-index: 1;
         }
-        
-        footer p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
+
+            footer p {
+                color: var(--text-secondary);
+                font-size: 0.9rem;
+            }
+
         /* Responsive */
         @media (max-width: 768px) {
             nav ul {
                 gap: 20px;
             }
-            
+
             .skills-grid,
             .cert-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .experience-timeline::before {
                 left: 10px;
             }
-            
+
             .experience-item {
                 padding-left: 35px;
             }
-            
+
             .contact-info {
                 flex-direction: column;
                 align-items: center;
             }
         }
-        
+
         /* Scroll reveal animation */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.6s ease;
         }
-        
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+
+            .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
     </style>
 </head>
 <body>
     <div class="grid-background"></div>
-    
+
     <header>
         <div class="container">
             <div class="header-content">
                 <img src="/profile-picture.jpeg" class="profile-picture">
                 <div class="header-text">
-                <div class="glitch-wrapper">
-                    <h1>Sai Kiran Nagam</h1>
-                </div>
-                <p class="subtitle">Sr. Full Stack .NET Developer</p>
-                <div class="contact-info">
-                    <a href="mailto:saikiran.net2@gmail.com" class="contact-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>E-mail</span>
-                    </a>
-                    <a href="tel:+19193718202" class="contact-item">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>Mobile Contact</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/saikirannagam" target="_blank" class="contact-item">
-                        <i class="fa-brands fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
+                    <div class="glitch-wrapper">
+                        <h1>Sai Kiran Nagam</h1>
+                    </div>
+                    <p class="subtitle">Sr. Full Stack .NET Developer</p>
+                    <div class="contact-info">
+                        <a href="mailto:saikiran.net2@gmail.com" class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>E-mail</span>
+                        </a>
+                        <a href="tel:+19193718202" class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>Mobile Contact</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/saikirannagam" target="_blank" class="contact-item">
+                            <i class="fa-brands fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
     </header>
-    
+
     <nav>
         <div class="container">
             <ul>
@@ -707,7 +711,7 @@ h1 {
             </ul>
         </div>
     </nav>
-    
+
     <section id="about">
         <div class="container">
             <h2 class="section-title reveal">About Me</h2>
@@ -715,18 +719,18 @@ h1 {
                 <p>With over 9+ years of experience in various phases of the Software Development Life Cycle (SDLC), I have actively contributed to the analysis, design, development, and maintenance of web applications. My expertise spans across technologies such as ASP.NET, C#, .NET Core, MVC, JavaScript, Angular and SQL Server.</p>
                 <p>I specialize in building scalable, high-performance applications using modern technologies and cloud platforms. From implementing microservices architecture to optimizing database performance, I bring a comprehensive approach to full-stack development with a focus on delivering exceptional user experiences.</p>
                 <p>Currently working at Fiduciary Exchange (FIDx), I develop cutting-edge financial applications using Angular, Blazor, and .NET 8, while leveraging Azure cloud services for scalable, secure deployments.</p>
-            <div style="text-align: center;">
-                <div class="resume-link-box">
-    <a href="/Sai_Kiran_Nagam_Resume.pdf" 
-       download="Sai_Kiran_Nagam_Resume.pdf">
-        Download Resume
-    </a>
-</div>
-            </div>
+                <div style="text-align: center;">
+                    <div class="resume-link-box">
+                        <a href="/Sai_Kiran_Nagam_Resume.pdf"
+                           download="Sai_Kiran_Nagam_Resume.pdf">
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    
+
     <section id="skills">
         <div class="container">
             <h2 class="section-title reveal">Technical Skills</h2>
@@ -744,7 +748,7 @@ h1 {
                         <span class="skill-tag">WPF</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-category reveal">
                     <h3>Frontend Technologies</h3>
                     <div class="skill-tags">
@@ -759,7 +763,7 @@ h1 {
                         <span class="skill-tag">Blazor</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-category reveal">
                     <h3>Databases</h3>
                     <div class="skill-tags">
@@ -771,7 +775,7 @@ h1 {
                         <span class="skill-tag">Entity Framework Core</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-category reveal">
                     <h3>Cloud & DevOps</h3>
                     <div class="skill-tags">
@@ -785,7 +789,7 @@ h1 {
                         <span class="skill-tag">Azure Functions</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-category reveal">
                     <h3>Testing & Tools</h3>
                     <div class="skill-tags">
@@ -799,7 +803,7 @@ h1 {
                         <span class="skill-tag">VS Code</span>
                     </div>
                 </div>
-                
+
                 <div class="skill-category reveal">
                     <h3>Methodologies</h3>
                     <div class="skill-tags">
@@ -816,7 +820,7 @@ h1 {
             </div>
         </div>
     </section>
-    
+
     <section id="certifications">
         <div class="container">
             <h2 class="section-title reveal">Certifications</h2>
@@ -824,42 +828,42 @@ h1 {
                 <div class="cert-card reveal">
                     <h3>Microsoft Certified: Azure Developer Associate</h3>
                     <p>Advanced Azure cloud development and deployment</p>
-              
+
                     <div class="cert-link-box">
-    <a href="https://learn.microsoft.com/api/credentials/share/en-us/SaiKiranNagam-8054/9D4585B0AFE4B1E6?sharingId=AB6BD0AFC086706D" 
-       target="_blank">
-        View Certificate
-    </a>
-</div>
+                        <a href="https://learn.microsoft.com/api/credentials/share/en-us/SaiKiranNagam-8054/9D4585B0AFE4B1E6?sharingId=AB6BD0AFC086706D"
+                           target="_blank">
+                            View Certificate
+                        </a>
+                    </div>
 
                 </div>
                 <div class="cert-card reveal">
                     <h3>AWS Certified: Data Engineer Associate</h3>
                     <p>Data engineering solutions on AWS platform</p>
-                  
+
                     <div class="cert-link-box">
-    <a href="https://www.credly.com/badges/4859b07f-7656-4716-b738-d7039a8584b0/public_url" 
-       target="_blank">
-        View Certificate
-    </a>
-</div>
+                        <a href="https://www.credly.com/badges/4859b07f-7656-4716-b738-d7039a8584b0/public_url"
+                           target="_blank">
+                            View Certificate
+                        </a>
+                    </div>
 
                 </div>
                 <div class="cert-card reveal">
                     <h3>HackerRank SQL Certification</h3>
                     <p>Basic and Advanced SQL proficiency</p>
-                    
-                      <div class="cert-link-box">
-    <a href="https://www.hackerrank.com/certificates/dce802634faa" 
-       target="_blank">
-        View Certificate
-    </a>
-</div>
-                    
+
+                    <div class="cert-link-box">
+                        <a href="https://www.hackerrank.com/certificates/dce802634faa"
+                           target="_blank">
+                            View Certificate
+                        </a>
+                    </div>
+
                 </div>
                 <div class="cert-card reveal">
                     <h3>Cisco Python Essentials</h3>
-                    <p>Python programming fundamentals</p> 
+                    <p>Python programming fundamentals</p>
                 </div>
                 <div class="cert-card reveal">
                     <h3>Microsoft Foundational C#</h3>
@@ -868,7 +872,7 @@ h1 {
             </div>
         </div>
     </section>
-    
+
     <section id="experience">
         <div class="container">
             <h2 class="section-title reveal">Professional Experience</h2>
@@ -890,7 +894,7 @@ h1 {
                         <span class="tech-item">CI/CD</span>
                     </div>
                 </div>
-                
+
                 <div class="experience-item reveal">
                     <h3>Blue Cross Blue Shield (BCBS)</h3>
                     <p class="role">Sr. Full Stack .NET Developer</p>
@@ -908,7 +912,7 @@ h1 {
                         <span class="tech-item">OAuth2</span>
                     </div>
                 </div>
-                
+
                 <div class="experience-item reveal">
                     <h3>First Citizens Bank</h3>
                     <p class="role">Full Stack .NET Developer</p>
@@ -926,7 +930,7 @@ h1 {
                         <span class="tech-item">Azure</span>
                     </div>
                 </div>
-                
+
                 <div class="experience-item reveal">
                     <h3>Inspire Brands</h3>
                     <p class="role">.NET Developer</p>
@@ -943,7 +947,7 @@ h1 {
                         <span class="tech-item">PostgreSQL</span>
                     </div>
                 </div>
-                
+
                 <div class="experience-item reveal">
                     <h3>LVB</h3>
                     <p class="role">.NET Developer</p>
@@ -963,36 +967,36 @@ h1 {
             </div>
         </div>
     </section>
-    
+
     <section id="contact" class="contact-section">
-    <div class="container">
-        <h2 class="section-title reveal">Let's Connect</h2>
-        <p class="reveal" style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 20px auto;">
-            I'm always interested in hearing about new opportunities, challenging projects, and collaborative ventures. Let's connect!
-        </p>
-        <div class="contact-buttons reveal">
-            <a href="mailto:saikiran.net2@gmail.com" class="cta-button cta-primary">
-                <i class="fa-solid fa-envelope"></i>
-                <span>Email Me</span>
-            </a>
-            <a href="https://www.linkedin.com/in/saikirannagam" target="_blank" class="cta-button cta-secondary">
-                <i class="fa-brands fa-linkedin"></i>
-                <span>LinkedIn</span>
-            </a>
-            <a href="tel:+19193718202" class="cta-button cta-secondary">
-                <i class="fa-solid fa-phone"></i>
-                <span>Call Me</span>
-            </a>
+        <div class="container">
+            <h2 class="section-title reveal">Let's Connect</h2>
+            <p class="reveal" style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 20px auto;">
+                I'm always interested in hearing about new opportunities, challenging projects, and collaborative ventures. Let's connect!
+            </p>
+            <div class="contact-buttons reveal">
+                <a href="mailto:saikiran.net2@gmail.com" class="cta-button cta-primary">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Email Me</span>
+                </a>
+                <a href="https://www.linkedin.com/in/saikirannagam" target="_blank" class="cta-button cta-secondary">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="tel:+19193718202" class="cta-button cta-secondary">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Call Me</span>
+                </a>
+            </div>
         </div>
-    </div>
-</section>
-    
+    </section>
+
     <footer>
         <div class="container">
             <p>&copy; 2026 Sai Kiran Nagam. All rights reserved.</p>
         </div>
     </footer>
-    
+
     <script>
         // Scroll reveal animation
         function reveal() {
@@ -1001,16 +1005,16 @@ h1 {
                 const windowHeight = window.innerHeight;
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 150;
-                
+
                 if (elementTop < windowHeight - elementVisible) {
                     element.classList.add('active');
                 }
             });
         }
-        
+
         window.addEventListener('scroll', reveal);
-        reveal(); // Initial check
-        
+        reveal();
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
