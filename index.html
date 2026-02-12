@@ -312,6 +312,30 @@ h1 {
             color: var(--text-secondary);
             margin-bottom: 20px;
         }
+
+        .resume-link-box {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.resume-link-box a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    background: rgba(100, 255, 218, 0.05);
+    transition: all 0.3s ease;
+}
+
+.resume-link-box a:hover {
+    background: var(--accent);
+    color: #000;
+    transform: translateY(-2px);
+}
+
         
         /* Skills Section */
         .skills-grid {
@@ -684,10 +708,12 @@ h1 {
                 <p>I specialize in building scalable, high-performance applications using modern technologies and cloud platforms. From implementing microservices architecture to optimizing database performance, I bring a comprehensive approach to full-stack development with a focus on delivering exceptional user experiences.</p>
                 <p>Currently working at Fiduciary Exchange (FIDx), I develop cutting-edge financial applications using Angular, Blazor, and .NET 8, while leveraging Azure cloud services for scalable, secure deployments.</p>
             <div style="text-align: center;">
-                <a href="/Sai_Kiran_Nagam_Resume.pdf" download="Sai_Kiran_Nagam_Resume.pdf" class="download-resume-btn">
-                <span>📄</span>
-                <span>Download Resume</span>
-                </a>
+                <div class="resume-link-box">
+    <a href="/Sai_Kiran_Nagam_Resume.pdf" 
+       download="Sai_Kiran_Nagam_Resume.pdf">
+        Download Resume
+    </a>
+</div>
             </div>
             </div>
         </div>
