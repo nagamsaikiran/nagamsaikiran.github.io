@@ -166,10 +166,7 @@
         }
         /* Layout adjustment for profile + text */
         .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* keeps text centered overall */
-            gap: 40px;
+            position: relative;
         }
         
         /* Profile image styling */
@@ -178,6 +175,7 @@
             height: 300px;
             border-radius: 50%;
             object-fit: cover;
+            object-position: center 30%;
             border: 3px solid var(--accent);
             flex-shrink: 0;
         }
