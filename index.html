@@ -86,104 +86,131 @@
         }
         
         /* Header */
-        header {
-            position: relative;
-            padding: 100px 0 80px;
-            text-align: center;
-            z-index: 1;
-        }
-        
-        .header-content {
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .glitch-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-        
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--highlight));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-            letter-spacing: -2px;
-            text-transform: uppercase;
-            position: relative;
-        }
-        
-        .subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: var(--text-secondary);
-            font-weight: 500;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-        
-        .contact-info {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-        
-        .contact-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            background: rgba(100, 255, 218, 0.05);
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            border-radius: 8px;
-            color: var(--accent);
-            text-decoration: none;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-item:hover {
-            background: rgba(100, 255, 218, 0.1);
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(100, 255, 218, 0.2);
-        }
-        /* Layout adjustment for profile + text */
-        .header-content {
-            position: relative;
-        }
-        
-        /* Profile image styling */
-        .profile-picture {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center 30%;
-            border: 3px solid var(--accent);
-            flex-shrink: 0;
-        }
-        
-        /* Keep text block centered */
-        .header-text {
-            text-align: center;
-        }
+header {
+    position: relative;
+    padding: 100px 0 80px;
+    z-index: 1;
+}
+
+.header-content {
+    animation: fadeInUp 1s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Profile Picture */
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    box-shadow: 0 0 40px rgba(100, 255, 218, 0.4);
+    object-fit: cover;
+    /* ADJUST THIS VALUE to move image up/down within the circle */
+    object-position: center 20%; /* Change 20% to move your face */
+    /* 0% = show top of image (move face down in circle) */
+    /* 50% = centered (default) */
+    /* 80% = show bottom of image (move face up in circle) */
+    transition: all 0.3s ease;
+    flex-shrink: 0; /* Prevents image from shrinking */
+}
+
+.profile-picture:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 60px rgba(100, 255, 218, 0.6);
+}
+
+/* Text section stays centered */
+.header-text {
+    text-align: center;
+    flex: 1; /* Takes remaining space */
+}
+
+.glitch-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--highlight));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.contact-info {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: rgba(100, 255, 218, 0.05);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    border-radius: 8px;
+    color: var(--accent);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: rgba(100, 255, 218, 0.1);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(100, 255, 218, 0.2);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+    }
+}
 
         
         /* Navigation */
