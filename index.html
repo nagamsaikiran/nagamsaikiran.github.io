@@ -97,8 +97,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px;
-    max-width: 1000px;
+    gap: 80px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -129,6 +129,7 @@ header {
     /* 80% = show bottom of image (move face up in circle) */
     transition: all 0.3s ease;
     flex-shrink: 0; /* Prevents image from shrinking */
+    margin-right: 30px;
 }
 
 .profile-picture:hover {
@@ -139,7 +140,8 @@ header {
 /* Text section stays centered */
 .header-text {
     text-align: center;
-    /*flex: 1; /* Takes remaining space */
+    flex: 1; /* Takes remaining space */
+    min-width: 500px;
 }
 
 .glitch-wrapper {
