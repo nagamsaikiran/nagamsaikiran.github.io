@@ -1,5 +1,6 @@
 # Visual Studio
 .vs/
+.agents/
 Web.config
 *.user
 
