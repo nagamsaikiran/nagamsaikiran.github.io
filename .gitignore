@@ -1,0 +1,8 @@
+# Visual Studio
+.vs/
+Web.config
+*.user
+
+# OS / editor junk
+.DS_Store
+Thumbs.db

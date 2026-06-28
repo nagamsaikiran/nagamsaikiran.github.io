@@ -4,6 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai Kiran Nagam - Sr. Full Stack .NET Developer</title>
+    <meta name="description" content="Sai Kiran Nagam — Sr. Full Stack .NET Developer with 9+ years building scalable, high-performance web applications using C#, .NET 8, Angular, Azure, and SQL Server.">
+    <meta name="author" content="Sai Kiran Nagam">
+    <meta name="theme-color" content="#0a192f">
+    <link rel="canonical" href="https://saikirannagam.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sai Kiran Nagam - Sr. Full Stack .NET Developer">
+    <meta property="og:description" content="9+ years building scalable, high-performance web applications with .NET, Angular, and Azure.">
+    <meta property="og:url" content="https://saikirannagam.com/">
+    <meta property="og:image" content="https://saikirannagam.com/profile-picture.jpeg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sai Kiran Nagam - Sr. Full Stack .NET Developer">
+    <meta name="twitter:description" content="9+ years building scalable, high-performance web applications with .NET, Angular, and Azure.">
+    <meta name="twitter:image" content="https://saikirannagam.com/profile-picture.jpeg">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sai Kiran Nagam",
+      "jobTitle": "Sr. Full Stack .NET Developer",
+      "url": "https://saikirannagam.com/",
+      "image": "https://saikirannagam.com/profile-picture.jpeg",
+      "email": "saikiran.net2@gmail.com",
+      "sameAs": ["https://www.linkedin.com/in/saikirannagam"],
+      "knowsAbout": ["C#", ".NET", "Angular", "Azure", "SQL Server", "Microservices"]
+    }
+    </script>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -131,9 +163,6 @@
             object-fit: cover;
             /* ADJUST THIS VALUE to move image up/down within the circle */
             object-position: center 15%; 
-             0% = show top of image (move face down in circle) 
-             50% = centered (default) 
-             80% = show bottom of image (move face up in circle) 
             transition: all 0.3s ease;
             flex-shrink: 0; 
             margin-right: 30px;
@@ -148,7 +177,7 @@
         .header-text {
             text-align: center;
             flex: 1; 
-            min-width: 800px;
+            min-width: 0; /* allow text to shrink, no overflow */
         }
 
         .glitch-wrapper {
@@ -677,7 +706,7 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <img src="/profile-picture.jpeg" class="profile-picture">
+                <img src="/profile-picture.jpeg" class="profile-picture" alt="Sai Kiran Nagam" width="350" height="350">
                 <div class="header-text">
                     <div class="glitch-wrapper">
                         <h1>Sai Kiran Nagam</h1>
@@ -692,16 +721,17 @@
                             <i class="fa-solid fa-phone"></i>
                             <span>Mobile Contact</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/saikirannagam" target="_blank" class="contact-item">
+                        <a href="https://www.linkedin.com/in/saikirannagam" target="_blank" rel="noopener noreferrer" class="contact-item">
                             <i class="fa-brands fa-linkedin"></i>
                             <span>LinkedIn</span>
                         </a>
                     </div>
                 </div>
             </div>
+        </div>
     </header>
 
-    <nav>
+    <nav aria-label="Primary">
         <div class="container">
             <ul>
                 <li><a href="#about">About</a></li>
@@ -891,7 +921,7 @@
 
                     <div class="cert-link-box">
                         <a href="https://learn.microsoft.com/api/credentials/share/en-us/SaiKiranNagam-8054/9D4585B0AFE4B1E6?sharingId=AB6BD0AFC086706D"
-                           target="_blank">
+                           target="_blank" rel="noopener noreferrer">
                             View Certificate
                         </a>
                     </div>
@@ -903,7 +933,7 @@
 
                     <div class="cert-link-box">
                         <a href="https://www.credly.com/badges/4859b07f-7656-4716-b738-d7039a8584b0/public_url"
-                           target="_blank">
+                           target="_blank" rel="noopener noreferrer">
                             View Certificate
                         </a>
                     </div>
@@ -915,7 +945,7 @@
 
                     <div class="cert-link-box">
                         <a href="https://www.hackerrank.com/certificates/dce802634faa"
-                           target="_blank">
+                           target="_blank" rel="noopener noreferrer">
                             View Certificate
                         </a>
                     </div>
@@ -1043,7 +1073,7 @@
                     <i class="fa-solid fa-phone"></i>
                     <span>Call Me</span>
                 </a>
-                <a href="https://www.linkedin.com/in/saikirannagam" target="_blank" class="cta-button cta-primary">
+                <a href="https://www.linkedin.com/in/saikirannagam" target="_blank" rel="noopener noreferrer" class="cta-button cta-primary">
                     <i class="fa-brands fa-linkedin"></i>
                     <span>LinkedIn</span>
                 </a>
