@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocChat RAG Case Study - Sai Kiran</title>
+    <meta name="description" content="Case study for DocChat RAG, a full-stack AI document Q&A application with citations, streaming answers, and a provider-agnostic RAG backend.">
+    <link rel="canonical" href="https://saikirannagam.com/projects/docchat.html">
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body class="docchat-detail">
+    <div class="grid-background"></div>
+
+    <header class="project-detail-header">
+        <div class="container">
+            <div class="project-detail-nav">
+                <a href="/#projects"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a>
+                <div class="project-actions">
+                    <a href="https://docchat.saikirannagam.com/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                    <a href="https://github.com/nagamsaikiran/rag-document-chat" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </div>
+            </div>
+            <div class="project-detail-title">
+                <p class="project-kicker">AI Document Q&amp;A</p>
+                <h1>DocChat RAG</h1>
+                <p>
+                    A production-shaped retrieval-augmented generation app that lets users upload PDFs,
+                    ask natural-language questions, and receive answers grounded in the uploaded documents
+                    with source/page citations.
+                </p>
+            </div>
+            <div class="project-hero-image">
+                <img src="/assets/img/projects/docchat-answer.png" alt="DocChat RAG answer screen showing a cited response">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container case-study-grid">
+                <div>
+                    <div class="case-panel reveal">
+                        <h2>Problem</h2>
+                        <p>
+                            Long PDF documents are difficult to search and even harder to trust when answers
+                            come from a general-purpose model. DocChat solves this by grounding every answer in
+                            retrieved document context and returning citations users can inspect.
+                        </p>
+                    </div>
+
+                    <div class="case-panel reveal">
+                        <h2>Implementation Highlights</h2>
+                        <ul>
+                            <li>Built a FastAPI backend for upload, ingestion, retrieval, chat, streaming, health, and source endpoints.</li>
+                            <li>Implemented PDF chunking and embedding into a persistent Chroma vector store.</li>
+                            <li>Added a provider abstraction for OpenAI and Google Gemini LLM/embedding providers.</li>
+                            <li>Used a relevance guardrail so out-of-scope questions are refused instead of hallucinated.</li>
+                            <li>Returned inline citations with source filename, page number, and snippets.</li>
+                            <li>Included an evaluation harness for retrieval quality, answer correctness, and faithfulness.</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-panel reveal">
+                        <h2>Result</h2>
+                        <p>
+                            The app demonstrates full-stack AI engineering: a Next.js/React interface, a Python
+                            AI backend, streaming UX, document-grounded answers, audit-friendly citations, and
+                            deployment as a single container for a custom subdomain.
+                        </p>
+                    </div>
+                </div>
+
+                <aside>
+                    <div class="case-panel reveal">
+                        <h3>Tech Stack</h3>
+                        <div class="project-tags">
+                            <span>Next.js 14</span>
+                            <span>React 18</span>
+                            <span>TypeScript</span>
+                            <span>FastAPI</span>
+                            <span>Python</span>
+                            <span>Pydantic</span>
+                            <span>ChromaDB</span>
+                            <span>pypdf</span>
+                            <span>PyMuPDF</span>
+                            <span>OpenAI</span>
+                            <span>Gemini</span>
+                            <span>Docker</span>
+                        </div>
+                    </div>
+
+                    <div class="case-panel reveal">
+                        <h3>Screenshots</h3>
+                        <div class="case-screenshot-grid">
+                            <img src="/assets/img/projects/docchat-upload.png" alt="DocChat upload screen">
+                            <img src="/assets/img/projects/docchat-answer.png" alt="DocChat cited answer screen">
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Sai Kiran. Built with passion and clean code.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js" defer></script>
+</body>
+</html>
