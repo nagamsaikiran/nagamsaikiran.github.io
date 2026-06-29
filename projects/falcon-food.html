@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon Food Case Study - Sai Kiran</title>
+    <meta name="description" content="Case study for Falcon Food, a full-stack restaurant ordering and delivery platform built with ASP.NET Core, Angular, PostgreSQL, SignalR, and JWT authentication.">
+    <link rel="canonical" href="https://saikirannagam.com/projects/falcon-food.html">
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body class="falcon-detail">
+    <div class="grid-background"></div>
+
+    <header class="project-detail-header">
+        <div class="container">
+            <div class="project-detail-nav">
+                <a href="/#projects"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a>
+            </div>
+            <div class="project-detail-title">
+                <p class="project-kicker">Full-Stack Ordering Platform</p>
+                <h1>Falcon Food</h1>
+                <p>
+                    A direct online ordering and delivery platform for restaurants, built with separate
+                    customer and admin experiences, live order workflows, secure authentication, and a
+                    data model designed to grow from one restaurant to many.
+                </p>
+            </div>
+            <div class="project-hero-image">
+                <img src="/assets/img/projects/falconfood-customer.png" alt="Falcon Food customer ordering screen">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container case-study-grid">
+                <div>
+                    <div class="case-panel reveal">
+                        <h2>Problem</h2>
+                        <p>
+                            Restaurants often lose margin to third-party delivery platforms and need a direct
+                            ordering channel they can control. Falcon Food models the core experience: customer
+                            ordering, restaurant operations, delivery assignment, and admin control.
+                        </p>
+                    </div>
+
+                    <div class="case-panel reveal">
+                        <h2>Implementation Highlights</h2>
+                        <ul>
+                            <li>Built an ASP.NET Core Web API for menu, orders, auth, admin, and delivery workflows.</li>
+                            <li>Used EF Core with PostgreSQL and a tenant-ready schema where core tables include RestaurantId.</li>
+                            <li>Implemented ASP.NET Identity, JWT authentication, Google OAuth, and email OTP verification.</li>
+                            <li>Created Angular customer and restaurant admin applications with modern standalone patterns.</li>
+                            <li>Used SignalR for live order updates and operational admin workflows.</li>
+                            <li>Added rate limiting, local user-secrets workflow, tests, CI, and a Postman API collection.</li>
+                        </ul>
+                    </div>
+
+                    <div class="case-panel reveal">
+                        <h2>Result</h2>
+                        <p>
+                            Falcon Food shows end-to-end product engineering: secure API design, relational data
+                            modeling, real-time updates, admin tooling, and a customer-facing ordering flow that can
+                            be adapted for different restaurant brands.
+                        </p>
+                    </div>
+                </div>
+
+                <aside>
+                    <div class="case-panel reveal">
+                        <h3>Tech Stack</h3>
+                        <div class="project-tags">
+                            <span>ASP.NET Core</span>
+                            <span>.NET 10</span>
+                            <span>EF Core</span>
+                            <span>PostgreSQL</span>
+                            <span>Angular 22</span>
+                            <span>TypeScript</span>
+                            <span>SignalR</span>
+                            <span>JWT</span>
+                            <span>Identity</span>
+                            <span>Google OAuth</span>
+                            <span>OTP</span>
+                            <span>Postman</span>
+                        </div>
+                    </div>
+
+                    <div class="case-panel reveal">
+                        <h3>Screenshots</h3>
+                        <div class="case-screenshot-grid">
+                            <img src="/assets/img/projects/falconfood-customer.png" alt="Falcon Food customer menu screen">
+                            <img src="/assets/img/projects/falconfood-admin.png" alt="Falcon Food admin dashboard screen">
+                            <img src="/assets/img/projects/falconfood-checkout.png" alt="Falcon Food checkout screen">
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Sai Kiran. Built with passion and clean code.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js" defer></script>
+</body>
+</html>
