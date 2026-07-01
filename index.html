@@ -8,6 +8,12 @@
     <meta name="author" content="Sai Kiran">
     <meta name="theme-color" content="#f8f6f1">
     <link rel="canonical" href="https://saikirannagam.com/">
+    <script src="/assets/js/site-config.js"></script>
+    <script>
+        if (window.SITE_CONFIG?.maintenanceMode) {
+            window.location.replace("/maintenance.html");
+        }
+    </script>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">

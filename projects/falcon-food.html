@@ -6,6 +6,12 @@
     <title>Falcon Food Case Study - Sai Kiran</title>
     <meta name="description" content="Case study for Falcon Food, a full-stack restaurant ordering and delivery platform built with ASP.NET Core, Angular, PostgreSQL, SignalR, and JWT authentication.">
     <link rel="canonical" href="https://saikirannagam.com/projects/falcon-food.html">
+    <script src="/assets/js/site-config.js"></script>
+    <script>
+        if (window.SITE_CONFIG?.maintenanceMode) {
+            window.location.replace("/maintenance.html");
+        }
+    </script>
     <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
