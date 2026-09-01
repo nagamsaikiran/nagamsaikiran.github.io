@@ -1,3 +1,3 @@
 window.SITE_CONFIG = {
-    maintenanceMode: true
+    maintenanceMode: false
 };
