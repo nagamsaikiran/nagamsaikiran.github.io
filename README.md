@@ -11,28 +11,25 @@ https://saikirannagam.com
 ```text
 .
 |-- assets/
-|   |-- css/
-|   |   `-- styles.css
+|   |-- css/styles.css
 |   |-- icons/
 |   |-- img/
-|   |   |-- profile-picture.jpg
-|   |   `-- projects/
 |   `-- js/
-|       `-- main.js
-|-- documents/
-|   `-- Sai_Kiran_Nagam_Resume.pdf
+|       |-- main.js
+|       `-- site-config.js 
 |-- projects/
 |   |-- docchat.html
 |   `-- falcon-food.html
+|-- .github/workflows/deploy.yml
 |-- CNAME
 |-- index.html
-|-- README.md
-`-- site.webmanifest
+|-- maintenance.html
+`-- README.md
 ```
 
 ## Notes
 
-- Hosted as a static site with GitHub Pages.
+- Hosted with GitHub Pages using the GitHub Actions deployment source.
 - Custom domain is configured through `CNAME`.
 - `index.html` contains the page markup and analytics snippets.
 - `assets/css/styles.css` contains site styling.
