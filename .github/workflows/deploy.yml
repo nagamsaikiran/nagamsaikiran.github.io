@@ -1,0 +1,73 @@
+name: Build and deploy portfolio
+
+on:
+  push:
+    branches: [ main ]
+  repository_dispatch:
+    types: [ content-updated ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: nagamsaikiran/portfolio-content
+          token: ${{ secrets.PORTFOLIO_PAT }}
+          path: _content
+
+      - name: Assemble site
+        run: |
+          set -e
+          rm -rf _site && mkdir -p _site
+
+          if grep -Eq 'maintenanceMode[[:space:]]*:[[:space:]]*true' assets/js/site-config.js; then
+            echo "Maintenance mode ON: publishing only the maintenance page"
+            cp maintenance.html _site/index.html
+            cp maintenance.html _site/maintenance.html
+            if [ -d assets/icons ]; then mkdir -p _site/assets/icons && cp -r assets/icons/. _site/assets/icons/; fi
+            [ -f CNAME ] && cp CNAME _site/ || true
+          else
+            echo "Maintenance mode OFF: publishing full site"
+            tar --exclude='./.git' --exclude='./.github' --exclude='./_content' --exclude='./_site' --exclude='./.vs' -cf - . | tar -xf - -C _site
+            PROFILE="$(tr -d ' \t\r\n' < _content/active-profile.txt)"
+            SRC="_content/profiles/$PROFILE"
+            test -d "$SRC"
+            PDF="$(find "$SRC" -maxdepth 1 -type f -name '*.pdf' | head -n1)"
+            test -n "$PDF"
+            mkdir -p _site/documents
+            cp "$PDF" _site/documents/Sai_Kiran_Nagam_Resume.pdf
+            SLOT='<div id="experience-companies-slot"></div>'
+            awk -v slot="$SLOT" -v fragfile="$SRC/experience-companies.html" '
+              index($0, slot) { while ((getline line < fragfile) > 0) print line; next }
+              { print }
+            ' _site/index.html > _site/index.tmp && mv _site/index.tmp _site/index.html
+          fi
+
+      - run: rm -rf _content
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
