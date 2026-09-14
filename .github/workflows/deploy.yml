@@ -26,7 +26,7 @@ jobs:
         with:
           repository: nagamsaikiran/portfolio-content
           token: ${{ secrets.PORTFOLIO_PAT }}
-          path: _content
+          path: _src
 
       - name: Assemble site
         run: |
@@ -41,9 +41,9 @@ jobs:
             [ -f CNAME ] && cp CNAME _site/ || true
           else
             echo "Maintenance mode OFF: publishing full site"
-            tar --exclude='./.git' --exclude='./.github' --exclude='./_content' --exclude='./_site' --exclude='./.vs' -cf - . | tar -xf - -C _site
-            PROFILE="$(tr -d ' \t\r\n' < _content/active-profile.txt)"
-            SRC="_content/profiles/$PROFILE"
+            tar --exclude='./.git' --exclude='./.github' --exclude='./_src' --exclude='./_site' --exclude='./.vs' -cf - . | tar -xf - -C _site
+            VARIANT="$(tr -d ' \t\r\n' < _src/variant.txt)"
+            SRC="_src/content/$VARIANT"
             test -d "$SRC"
             PDF="$(find "$SRC" -maxdepth 1 -type f -name '*.pdf' | head -n1)"
             test -n "$PDF"
@@ -54,9 +54,17 @@ jobs:
               index($0, slot) { while ((getline line < fragfile) > 0) print line; next }
               { print }
             ' _site/index.html > _site/index.tmp && mv _site/index.tmp _site/index.html
+
+            if [ -f "$SRC/subtitle.txt" ]; then
+              SUB="$(tr -d '\r\n' < "$SRC/subtitle.txt")"
+              awk -v subt="$SUB" '
+                index($0, "id=\"subtitle-slot\"") { print "                    <p class=\"subtitle\">" subt "</p>"; next }
+                { print }
+              ' _site/index.html > _site/index.tmp && mv _site/index.tmp _site/index.html
+            fi
           fi
 
-      - run: rm -rf _content
+      - run: rm -rf _src
 
       - uses: actions/upload-pages-artifact@v3
         with:
