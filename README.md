@@ -32,4 +32,4 @@ https://saikirannagam.com
 - `assets/css/styles.css` contains site styling.
 - `assets/js/main.js` contains page interactions.
 - Project case studies live in `projects/`.
-- Resume files are stored in `documents/`.
+
