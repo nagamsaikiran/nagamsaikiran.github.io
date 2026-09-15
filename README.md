@@ -1,7 +1,4 @@
 # Sai Kiran Portfolio
-
-Personal portfolio website for Sai Kiran, Full Stack Developer | Software Developer.
-
 ## Live Site
 
 https://saikirannagam.com
