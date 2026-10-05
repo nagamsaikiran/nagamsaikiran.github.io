@@ -64,6 +64,29 @@ jobs:
             fi
           fi
 
+      - name: Generate robots.txt (maintenance mode)
+        run: |
+          if grep -Eq 'maintenanceMode[[:space:]]*:[[:space:]]*true' assets/js/site-config.js; then
+            cat > _site/robots.txt << 'EOF'
+          User-agent: *
+          Disallow: /
+          EOF
+          else
+            cat > _site/robots.txt << 'EOF'
+          User-agent: *
+          Allow: /
+          Sitemap: https://saikirannagam.com/sitemap.xml
+          EOF
+          fi
+
+      - name: Copy sitemap.xml (normal mode only)
+        run: |
+          if ! grep -Eq 'maintenanceMode[[:space:]]*:[[:space:]]*true' assets/js/site-config.js; then
+            if [ -f sitemap.xml ]; then
+              cp sitemap.xml _site/sitemap.xml
+            fi
+          fi
+
       - run: rm -rf _src
 
       - uses: actions/upload-pages-artifact@v3
