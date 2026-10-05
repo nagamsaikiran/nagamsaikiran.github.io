@@ -1,0 +1,3 @@
+User-agent: *
+{{ROBOTS_RULES}}
+Sitemap: {{SITEMAP_RULE}}
